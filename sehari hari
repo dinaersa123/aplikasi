@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan Sehari-Hari</title>
+    <!-- Menggunakan Tailwind CSS untuk styling yang rapi dan cepat -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Judul -->
+    <header class="py-8 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-indigo-900">Kegiatan Sehari-Hari Saya</h1>
+        <p class="text-gray-600 mt-2">Pilih aktivitas favorit Anda di bawah ini:</p>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-4 max-w-xl text-center mb-12">
+        
+        <!-- Pilihan Tombol -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <button onclick="pilihAktivitas('tidur')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                🛌 Tidur
+            </button>
+            <button onclick="pilihAktivitas('makan')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                🍽️ Makan
+            </button>
+            <button onclick="pilihAktivitas('minum')" class="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                🥤 Minum
+            </button>
+        </div>
+
+        <!-- Kotak Hasil / Output Interaktif -->
+        <div id="result-box" class="bg-white p-6 rounded-2xl shadow-md border border-indigo-100 hidden">
+            <p id="result-text" class="text-lg text-gray-700 font-medium"></p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-sm text-gray-500">
+        Dibuat dengan ❤️ untuk GitHub Pages.
+    </footer>
+
+    <!-- Skrip JavaScript Interaktif -->
+    <script>
+        function pilihAktivitas(jenis) {
+            const resultBox = document.getElementById('result-box');
+            const resultText = document.getElementById('result-text');
+            
+            let pesan = "";
+
+            switch(jenis) {
+                case 'tidur':
+                    pesan = "😴 **Tidur:** Istirahat yang cukup sangat penting untuk memulihkan energi setelah seharian beraktivitas.";
+                    break;
+                case 'makan':
+                    pesan = "🍛 **Makan:** Mengisi kembali energi dengan makanan bergizi agar tubuh tetap sehat dan bugar.";
+                    break;
+                case 'minum':
+                    pesan = "💧 **Minum:** Menjaga tubuh tetap terhidrasi dengan cukup minum air putih setiap hari.";
+                    break;
+            }
+
+            // Tampilkan kotak dan ubah teksnya
+            resultBox.classList.remove('hidden');
+            resultText.innerHTML = pesan;
+        }
+    </script>
+
+</body>
+</html>
